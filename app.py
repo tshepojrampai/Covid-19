@@ -198,6 +198,96 @@ fig_rt.update_layout(hovermode='x',
         type='date'
     ))
 
+# Provincial cases dataset
+df_day = pd.read_csv('https://raw.githubusercontent.com/dsfsi/covid19za/master/data/covid19za_provincial_cumulative_timeline_confirmed.csv')
+df_day = df_day.drop('source',axis = 1)
+df_day = df_day.dropna()
+
+#Commulative cases by province
+
+
+fig_comm = go.Figure()
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['EC'],
+        x=df_day.date,
+        name= 'EC'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['WC'],
+        x=df_day.date,
+        name= 'WC'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['FS'],
+        x=df_day.date,
+        name= 'FS'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['GP'],
+        x=df_day.date,
+        name= 'GP'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['KZN'],
+        x=df_day.date,
+        name= "KZN"
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['NW'],
+        x=df_day.date,
+        name= 'NW'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['LP'],
+        x=df_day.date,
+        name= 'LP'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['MP'],
+        x=df_day.date,
+        name= 'MP'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['NC'],
+        x=df_day.date,
+        name= 'NC'
+    ))
+fig_comm.add_trace(
+    go.Scatter(
+        y=df_day['UNKNOWN'],
+        x=df_day.date,
+        name='Unlocated'
+    ))
+# fig_comm.add_trace(
+#     go.Scatter(
+#         y=df_day['total'],
+#         x=df_day.date,
+#         name='Total Confirmed in SA'
+#     ))
+
+fig_comm.update_layout(hovermode='x',
+                       title = 'Commulative confirmed cases by province',
+                       xaxis=dict(
+                         rangeslider=dict(
+                             visible = True),
+                           
+       
+                       
+    ))
+
+
+
+
+
 #Total confirmed world map
 data = [ dict(
  type='choropleth',
