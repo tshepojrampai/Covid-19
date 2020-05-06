@@ -155,7 +155,7 @@ df3 = pd.read_json(url3, orient='columns')
 url4 = 'https://covid19.soficoop.com/country/za'
 url5 = 'https://api.covid19api.com/total/dayone/country/south-africa'
 df5 = pd.read_json(url5, orient='columns')
-df6 = pd.read_csv('covid.csv',delimiter=',')
+df6 = pd.read_csv('datasets/covid.csv',delimiter=',')
 
 #Daily Commulative dataframe 
 df4 = requests.get(url4).json()
@@ -168,7 +168,7 @@ fig_line = go.Figure()
 fig_line.add_trace(go.Scatter(x = df4.timestamp,y= df4.active, name = 'Active Cases in SA'))
 fig_line.update_layout(title = 'Commulative confirmed cases in SA as 17/03/2020')
 
-df_rt = pd.read_csv('data-CiK32.csv')
+df_rt = pd.read_csv('datasets/data-CiK32.csv')
 
 #Effective reproduction
 fig_rt = go.Figure()
